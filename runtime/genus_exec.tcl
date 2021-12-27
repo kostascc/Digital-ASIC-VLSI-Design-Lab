@@ -1,7 +1,7 @@
 # Initialize
 #gui_show
 report_messages
-set_db use_scan_seqs_for_non_dft false  # Disable SDFFs
+set_db use_scan_seqs_for_non_dft false
 
 # Set Paths
 set_db init_lib_search_path { /mnt/apps/prebuilt/eda/designkits/GPDK/gsclib045/lan/flow/t1u1/reference_libs/GPDK045/gsclib045_svt_v4.4/gsclib045/timing /mnt/apps/prebuilt/eda/designkits/GPDK/gsclib045/lan/flow/t1u1/reference_libs/GPDK045/gsclib045_svt_v4.4/gsclib045/lef /mnt/apps/prebuilt/eda/designkits/GPDK/gsclib045/lan/flow/t1u1/reference_libs/GPDK045/gsclib045_svt_v4.4/gsclib045/qrc/qx} 
@@ -23,9 +23,9 @@ read_sdc t1.sdc
 check_timing_intent > ./reports/timing_intent.rep
 
 # Sythesize
-syn_generic # > ./reports/generic.syn
-syn_map     # > ./reports/map.syn
-syn_opt     # > ./reports/opt.syn
+syn_generic 
+syn_map 
+syn_opt 
 
 # Report
 write_reports -directory ./tmp/ -tag aes_sumrep
