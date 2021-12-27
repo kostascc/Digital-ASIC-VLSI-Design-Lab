@@ -1,5 +1,5 @@
 # Initialize
-gui_show
+#gui_show
 report_messages
 set_db use_scan_seqs_for_non_dft false  # Disable SDFFs
 
