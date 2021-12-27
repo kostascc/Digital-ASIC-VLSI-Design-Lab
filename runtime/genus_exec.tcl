@@ -15,34 +15,34 @@ read_qrc gpdk045.tch
 
 # Import and Elaborate the design
 read_hdl -f ./hdl.list.tmp
-elaborate aes > ./reports/elaborate.log
-check_design  > ./reports/design.log
+elaborate aes
+check_design  > ./reports/genus/design.log
 
 # Import and Check Constraints
 read_sdc t1.sdc
-check_timing_intent > ./reports/timing_intent.rep
+check_timing_intent > ./reports/genus/timing_intent.rpt
 
 # Sythesize
-syn_generic 
-syn_map 
-syn_opt 
+syn_generic
+syn_map
+syn_opt
 
 # Report
-write_reports -directory ./tmp/ -tag aes_sumrep
-report_summary      > ./reports/qos_summary.rep
-report_area -detail > ./reports/area.rep
-report_timing       > ./reports/timing.rep
-report_power        > ./reports/power.rep
-report_clocks       > ./reports/clocks.rep
-report_qor -levels_of_logic -power > ./reports/qor.rep
-report_gates -power -net_power -yield > ./reports/gates.rep
+write_reports  -directory ./reports/genus/ -tag summary
+report_summary -directory ./reports/genus/
+report_area    -detail > ./reports/genus/area.rpt
+report_timing          > ./reports/genus/timing.rpt
+report_power           > ./reports/genus/power.rpt
+report_clocks          > ./reports/genus/clocks.rpt
+report_qor     -levels_of_logic -power > ./reports/genus/qor.rpt
+report_gates   -power -net_power -yield > ./reports/genus/gates.rpt
 
 # Export Gate-Level Netlist
-write_hdl    ./exports/design.v
-write_script ./exports/constraints.g
-write_sdc    ./exports/constraints.sdc
-write_design aes -basename ./exports/aes_synth -innovus
+write_hdl    >  ./exports/genus/design.v
+write_script > ./exports/genus/constraints.g
+write_sdc    > ./exports/genus/constraints.sdc
+write_design aes -basename ./exports/genus/ -innovus
 
-report_messages > ./reports/messages.rep
+report_messages > ./reports/genus/messages.log
 
 exit
