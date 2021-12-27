@@ -14,9 +14,9 @@ set_db lef_library { gsclib045_tech.lef gsclib045_macro.lef }
 read_qrc gpdk045.tch
 
 # Import and Elaborate the design
-read_hdl -f ./hdl.list
+read_hdl -f ./hdl.list.tmp
 elaborate aes > ./reports/elaborate.log
-check_design  > ./reports/design.chk
+check_design  > ./reports/design.log
 
 # Import and Check Constraints
 read_sdc t1.sdc
