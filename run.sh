@@ -18,5 +18,7 @@ rm -rf ./tmp/*
 genus -f ./runtime/genus_exec.tcl
 
 rm -rf ./**.tmp
-rm -rf ./exports/*
-rm -rf ./tmp/*
+rm -rf ./exports/**
+rm -rf ./tmp/**
+rm -rf ./*.cmd*
+rm -rf ./*.log*
